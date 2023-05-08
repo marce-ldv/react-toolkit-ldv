@@ -14,6 +14,8 @@ export interface InputProps {
   value?: string | number;
   onChange?: InputHTMLAttributes<HTMLInputElement>["onChange"];
   type?: string;
+  fullWidth?: boolean;
+  disabled?: boolean;
 }
 
 const MAX_CHARS_LENGTH = 200;
