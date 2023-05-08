@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-interface */
 import { Button } from "@mui/material";
 import type { ButtonProps } from "@mui/material";
 import { PropsWithChildren } from "react";
