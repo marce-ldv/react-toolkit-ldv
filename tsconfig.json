@@ -17,7 +17,17 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* paths */
+    "paths": {
+      "~/*": ["./*"],
+      "~/atoms": ["./src/components/atoms/*"],
+      "~/molecules": ["./src/components/molecules/*"],
+      "~/organisms": ["./src/components/organisms/*"],
+      "~/types": ["./src/types/*"],
+      "~/public": ["./public/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
