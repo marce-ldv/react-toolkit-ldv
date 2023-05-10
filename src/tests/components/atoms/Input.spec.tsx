@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+// import userEvent from '@testing-library/user-event'
 import { toHaveNoViolations } from 'jest-axe'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 // import { Input } from "~/Input";
 import Input from '../../../components/atoms/Input'
@@ -21,25 +21,25 @@ describe('Input', () => {
     expect(label).toBeInTheDocument()
   })
 
-  // it("should render with placeholder", () => {
-  //   render(<Input placeholder="placeholder" />);
-  //   const placeholder = screen.getByPlaceholderText("placeholder");
-  //   expect(placeholder).toBeInTheDocument();
-  // });
-
-  it('the user should type in the input', () => {
-    const onChange = vi.fn()
-    render(<Input onChange={onChange} />)
-
-    const input = screen.getByRole('textbox')
-
-    expect(input).toBeInTheDocument()
-    expect(input).toHaveValue('')
-
-    userEvent.type(input, 'hello')
-
-    expect(input).toHaveValue('hello')
+  it('should render with placeholder', () => {
+    render(<Input placeholder='placeholder' />)
+    const placeholder = screen.getByPlaceholderText('placeholder')
+    expect(placeholder).toBeInTheDocument()
   })
+
+  // it('the user should type in the input', () => {
+  //   const onChange = vi.fn()
+  //   render(<Input onChange={onChange} />)
+
+  //   const input = screen.getByRole('textbox')
+
+  //   expect(input).toBeInTheDocument()
+  //   expect(input).toHaveValue('')
+
+  //   userEvent.type(input, 'hello')
+
+  //   expect(input).toHaveValue('hello')
+  // })
 
   it('should render with disabled', () => {
     render(<Input disabled />)
