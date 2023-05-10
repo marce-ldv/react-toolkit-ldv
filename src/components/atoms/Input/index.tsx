@@ -1,24 +1,24 @@
-import { FC, InputHTMLAttributes } from "react";
+import { FC, InputHTMLAttributes, JSX } from 'react'
 
-import { Typography } from "@mui/material";
-import MuiTextField from "@mui/material/TextField";
+import { Typography } from '@mui/material'
+import MuiTextField from '@mui/material/TextField'
 
-import { StyledCharsCounter } from "./styled";
+import { StyledCharsCounter } from './styled'
 
 export interface InputProps {
-  maxLength?: number;
-  inputProps?: { startAdornment?: JSX.Element };
-  error?: boolean;
-  variant?: "standard" | "filled" | "outlined";
-  label?: string;
-  value?: string | number;
-  onChange?: InputHTMLAttributes<HTMLInputElement>["onChange"];
-  type?: string;
-  fullWidth?: boolean;
-  disabled?: boolean;
+  maxLength?: number
+  inputProps?: { startAdornment?: JSX.Element }
+  error?: boolean
+  variant?: 'standard' | 'filled' | 'outlined'
+  label?: string
+  value?: string | number
+  onChange?: InputHTMLAttributes<HTMLInputElement>['onChange']
+  type?: string
+  fullWidth?: boolean
+  disabled?: boolean
 }
 
-const MAX_CHARS_LENGTH = 200;
+const MAX_CHARS_LENGTH = 200
 
 const Input: FC<InputProps> = ({
   maxLength = MAX_CHARS_LENGTH,
@@ -26,12 +26,12 @@ const Input: FC<InputProps> = ({
   error,
   variant,
   onChange,
-  label = "",
+  label = '',
   inputProps,
-  type = "text",
+  type = 'text',
   ...props
 }) => {
-  const valueLength = String(value).length || 0;
+  const valueLength = String(value).length || 0
 
   return (
     <div>
@@ -53,7 +53,7 @@ const Input: FC<InputProps> = ({
         >{`${valueLength} / ${maxLength}`}</Typography>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

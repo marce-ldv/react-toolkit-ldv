@@ -1,8 +1,9 @@
-import { defineConfig } from "vite";
-import path from "node:path";
-import react from "@vitejs/plugin-react-swc";
-import dts from "vite-plugin-dts";
-import svgrPlugin from "vite-plugin-svgr";
+import { defineConfig } from 'vite'
+import path from 'node:path'
+import react from '@vitejs/plugin-react-swc'
+import dts from 'vite-plugin-dts'
+import svgrPlugin from 'vite-plugin-svgr'
+import eslint from 'vite-plugin-eslint'
 
 export default defineConfig({
   plugins: [
@@ -16,37 +17,38 @@ export default defineConfig({
         // ...svgr options (https://react-svgr.com/docs/options/)
       },
     }),
+    eslint(),
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/lib/index.ts"),
-      name: "MyLib",
-      formats: ["es"],
-      fileName: (format) => `my-lib.${format}.js`,
+      entry: path.resolve(__dirname, 'src/lib/index.ts'),
+      name: 'MyLib',
+      formats: ['es'],
+      fileName: format => `my-lib.${format}.js`,
     },
     rollupOptions: {
       external: [
-        "react",
-        "react-dom",
-        "@mui/material",
-        "@emotion/react",
-        "@emotion/styled",
+        'react',
+        'react-dom',
+        '@mui/material',
+        '@emotion/react',
+        '@emotion/styled',
       ],
       output: {
         globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
+          react: 'React',
+          'react-dom': 'ReactDOM',
         },
       },
     },
   },
   test: {
     globals: true,
-    environment: "jsdom",
-    setupFiles: "./src/setupTests.js",
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.js',
     coverage: {
-      reporter: ["text", "html"],
-      exclude: ["node_modules/", "src/setupTests.js"],
+      reporter: ['text', 'html'],
+      exclude: ['node_modules/', 'src/setupTests.js'],
     },
   },
-});
+})

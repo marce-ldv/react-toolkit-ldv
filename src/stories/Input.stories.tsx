@@ -1,69 +1,69 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from '@storybook/react'
 
-import Input from "../components/atoms/Input";
+import Input from '../components/atoms/Input'
 
 export default {
-  title: "Atoms/Input",
+  title: 'Atoms/Input',
   component: Input,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     color: {
       control: {
-        type: "select",
-        options: ["primary", "secondary"],
+        type: 'select',
+        options: ['primary', 'secondary'],
       },
     },
   },
-} as Meta<typeof Input>;
+} as Meta<typeof Input>
 
-type Story = StoryFn<typeof Input>;
+type Story = StoryFn<typeof Input>
 
-const Template: Story = (args) => {
-  const [value, setValue] = useState("");
+const Template: Story = args => {
+  const [value, setValue] = useState('')
 
   return (
     <Input
       {...args}
       value={value}
-      onChange={(e) => {
-        setValue(e.target.value);
+      onChange={e => {
+        setValue(e.target.value)
       }}
     />
-  );
-};
+  )
+}
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Primary = Template.bind({})
+Primary.args = {}
 
-export const MaxLength = Template.bind({});
+export const MaxLength = Template.bind({})
 MaxLength.args = {
   maxLength: 10,
-};
+}
 
-export const FullWidth = Template.bind({});
+export const FullWidth = Template.bind({})
 FullWidth.args = {
   fullWidth: true,
-};
+}
 
-export const Error = Template.bind({});
+export const Error = Template.bind({})
 Error.args = {
   error: true,
-};
+}
 
-export const Disabled = Template.bind({});
+export const Disabled = Template.bind({})
 Disabled.args = {
   disabled: true,
-  variant: "filled",
-};
+  variant: 'filled',
+}
 
-export const Filled = Template.bind({});
+export const Filled = Template.bind({})
 Filled.args = {
-  variant: "filled",
-};
+  variant: 'filled',
+}
 
-export const Outlined = Template.bind({});
+export const Outlined = Template.bind({})
 Outlined.args = {
-  variant: "outlined",
-};
+  variant: 'outlined',
+}

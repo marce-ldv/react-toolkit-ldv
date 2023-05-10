@@ -1,38 +1,40 @@
-import "@testing-library/jest-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
-import { axe, toHaveNoViolations } from "jest-axe";
+import '@testing-library/jest-dom'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { axe, toHaveNoViolations } from 'jest-axe'
+import { describe, expect, it, vi } from 'vitest'
 
 // import { Button } from "~/atoms";
-import Button from "../../../components/atoms/Button";
+import Button from '../../../components/atoms/Button'
 
-expect.extend(toHaveNoViolations);
+expect.extend(toHaveNoViolations)
 
-describe("Button", () => {
-  test("should render without crashes", () => {
-    render(<Button>btn label</Button>);
-    const btn = screen.getByText(/btn label/i);
-    expect(btn).toBeInTheDocument();
-  });
+describe('Button', () => {
+  it('should render without crashes', () => {
+    render(<Button>btn label</Button>)
 
-  test("should render with custom props", () => {
-    render(<Button variant="outlined">btn label</Button>);
-    expect(screen.getByText(/btn label/i)).toBeInTheDocument();
-  });
+    const btn = screen.getByText(/btn label/i)
+    expect(btn).toBeInTheDocument()
+  })
 
-  test("should click on button", () => {
-    const onClick = jest.fn();
-    render(<Button onClick={onClick}>btn label</Button>);
+  it('should render with custom props', () => {
+    render(<Button variant='outlined'>btn label</Button>)
+    expect(screen.getByText(/btn label/i)).toBeInTheDocument()
+  })
 
-    const btn = screen.getByRole("button", { name: /btn label/i });
-    fireEvent.click(btn);
+  it('should click on button', () => {
+    const onClick = vi.fn()
+    render(<Button onClick={onClick}>btn label</Button>)
 
-    expect(onClick).toHaveBeenCalledTimes(1);
-  });
+    const btn = screen.getByRole('button', { name: /btn label/i })
+    fireEvent.click(btn)
 
-  test("should have no accessibility violations", async () => {
-    const { container } = render(<Button>btn label</Button>);
-    const results = await axe(container);
+    expect(onClick).toHaveBeenCalledTimes(1)
+  })
 
-    expect(results).toHaveNoViolations();
-  });
-});
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Button>btn label</Button>)
+    const results = await axe(container)
+
+    expect(results).toHaveNoViolations()
+  })
+})
