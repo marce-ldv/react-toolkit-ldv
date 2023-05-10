@@ -17,6 +17,10 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-magic-numbers": "error",
+    "no-nested-ternary": "error",
+    "no-console": "warn",
+    "@typescript-eslint/no-explicit-any": "error",
     "react-refresh/only-export-components": "warn",
     "no-unused-vars": "warn",
     "import/order": [
