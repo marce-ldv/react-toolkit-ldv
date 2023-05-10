@@ -2,12 +2,19 @@ import { defineConfig } from "vite";
 import path from "node:path";
 import react from "@vitejs/plugin-react-swc";
 import dts from "vite-plugin-dts";
+import svgrPlugin from "vite-plugin-svgr";
 
 export default defineConfig({
   plugins: [
     react(),
     dts({
       insertTypesEntry: true,
+    }),
+    svgrPlugin({
+      svgrOptions: {
+        icon: true,
+        // ...svgr options (https://react-svgr.com/docs/options/)
+      },
     }),
   ],
   build: {
@@ -31,6 +38,15 @@ export default defineConfig({
           "react-dom": "ReactDOM",
         },
       },
+    },
+  },
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/setupTests.js",
+    coverage: {
+      reporter: ["text", "html"],
+      exclude: ["node_modules/", "src/setupTests.js"],
     },
   },
 });
