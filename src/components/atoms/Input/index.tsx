@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, JSX } from 'react'
+import { InputHTMLAttributes, JSX } from 'react'
 
 import { Typography } from '@mui/material'
 import MuiTextField from '@mui/material/TextField'
@@ -20,7 +20,7 @@ export interface InputProps {
 
 const MAX_CHARS_LENGTH = 200
 
-const Input: FC<InputProps> = ({
+const Input = ({
   maxLength = MAX_CHARS_LENGTH,
   value,
   error,
@@ -30,7 +30,7 @@ const Input: FC<InputProps> = ({
   inputProps,
   type = 'text',
   ...props
-}) => {
+}: InputProps) => {
   const valueLength = String(value).length || 0
 
   return (
