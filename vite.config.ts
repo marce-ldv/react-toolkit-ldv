@@ -1,9 +1,9 @@
-import { defineConfig } from 'vite'
 import path from 'node:path'
+
 import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import svgrPlugin from 'vite-plugin-svgr'
-import eslint from 'vite-plugin-eslint'
 
 export default defineConfig({
   plugins: [
@@ -17,7 +17,6 @@ export default defineConfig({
         // ...svgr options (https://react-svgr.com/docs/options/)
       },
     }),
-    eslint(),
   ],
   build: {
     lib: {
