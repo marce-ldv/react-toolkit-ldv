@@ -2,10 +2,13 @@ import { Meta, StoryObj } from '@storybook/react'
 
 import { Breadcrumb } from '../components/atoms'
 
-const BreadcrumbOptions = [
-  <p key={1}>Administrador de usuarios</p>,
-  <p key={2}>Listado de usuarios</p>,
+const options = [
+  { title: 'Administrador de usuarios', linkTo: '/' },
+  { title: 'Listado de usuarios', linkTo: '/list' },
+  { title: 'Creación de usuarios' },
 ]
+
+const optionsWithoutLink = [{ title: 'Administrador de usuarios' }]
 
 const meta: Meta<typeof Breadcrumb> = {
   title: 'Atoms/Breadcrumb',
@@ -18,6 +21,12 @@ type Story = StoryObj<typeof Breadcrumb>
 
 export const Primary: Story = {
   args: {
-    options: BreadcrumbOptions,
+    options,
+  },
+}
+
+export const WithoutLink: Story = {
+  args: {
+    options: optionsWithoutLink,
   },
 }

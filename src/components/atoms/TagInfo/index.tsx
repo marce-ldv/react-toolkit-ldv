@@ -1,21 +1,19 @@
-import { FC } from 'react'
-
 import { Chip, ChipProps } from '@mui/material'
 
 import { tagInfoStyles } from './styled'
 
-interface Props extends ChipProps {
+interface TagInfoProps extends ChipProps {
   isUppercase?: boolean
   label?: string
 }
 
-const TagInfo: FC<Props> = ({
+const TagInfo = ({
   label = 'Usuarios',
   isUppercase = true,
   variant = 'filled',
   color = '#D500F94D',
   ...props
-}) => {
+}: TagInfoProps) => {
   const getLabel = (label: string) =>
     isUppercase ? label.toUpperCase() : label
 

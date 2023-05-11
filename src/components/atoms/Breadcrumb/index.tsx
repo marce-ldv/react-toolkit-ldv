@@ -1,28 +1,38 @@
-import { ReactNode, FC, ReactElement } from 'react'
+import { ReactNode } from 'react'
 
-import Breadcrumbs, { BreadcrumbsProps } from '@mui/material/Breadcrumbs'
-import Stack from '@mui/material/Stack'
-import { SxProps } from '@mui/system'
+import { NavigateNext as NavigateNextIcon } from '@mui/icons-material'
+import { Typography, Stack } from '@mui/material'
 
-import { NavigateNextIcon } from './styled'
+import { StyledLink, StyledSpan } from './styled'
 
-export interface BreadcrumbProps extends BreadcrumbsProps {
-  options: ReactElement[]
-  separator?: ReactNode
-  customSx?: SxProps
+export interface BreadcrumbOption {
+  title: string
+  linkTo?: string
 }
 
-const Breadcrumb: FC<BreadcrumbProps> = ({ options, separator, customSx }) => {
+export interface BreadcrumbProps {
+  options: BreadcrumbOption[]
+  separator?: ReactNode
+}
+
+const Breadcrumb = ({ options, separator }: BreadcrumbProps) => {
   return (
-    <Stack spacing={2}>
-      <Breadcrumbs
-        separator={separator ?? <NavigateNextIcon fontSize='small' />}
-        sx={customSx}
-        aria-label='breadcrumb'
-        color='primary.main'
-      >
-        {options}
-      </Breadcrumbs>
+    <Stack
+      spacing={1}
+      direction='row'
+      aria-label='breadcrumb'
+      role='breadcrumb'
+    >
+      {options?.map(({ title, linkTo }) => {
+        const Component = linkTo ? StyledLink : StyledSpan
+
+        return (
+          <Stack key={title} role='listitem' direction='row'>
+            <Typography component={Component}>{title}</Typography>
+            {linkTo && (separator ?? <NavigateNextIcon role='separator' />)}
+          </Stack>
+        )
+      })}
     </Stack>
   )
 }
