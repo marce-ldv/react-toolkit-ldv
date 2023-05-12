@@ -27,6 +27,7 @@ const Template: Story = args => {
     <Input
       {...args}
       value={value}
+      placeholder='Placeholder'
       onChange={e => {
         setValue(e.target.value)
       }}

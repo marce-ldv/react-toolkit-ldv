@@ -20,8 +20,6 @@ const TagInfo = ({
   const tagStyles = {
     ...tagInfoStyles,
     backgroundColor: color,
-    color: '#000',
-    borderRadius: 0,
   }
 
   return (

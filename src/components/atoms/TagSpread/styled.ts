@@ -1,5 +1,6 @@
 export const tagStyles = {
   backgroundColor: '#383838',
   color: '#FFF',
-  borderRadius: 0,
+  borderRadius: '2px',
+  padding: '0 10px',
 }
