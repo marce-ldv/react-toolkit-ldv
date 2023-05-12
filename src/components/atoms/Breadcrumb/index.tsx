@@ -1,4 +1,4 @@
-import { Component, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 import { NavigateNext as NavigateNextIcon } from '@mui/icons-material'
 import { Stack } from '@mui/material'
@@ -7,13 +7,12 @@ import { StyledSpan } from './styled'
 
 export interface BreadcrumbOption {
   title: string
-  linkTo?: ReactNode
+  Link?: ReactNode
 }
 
 export interface BreadcrumbProps {
   options: BreadcrumbOption[]
   separator?: ReactNode
-  Link?: ReactNode | Component | never
 }
 
 const Breadcrumb = ({ options, separator }: BreadcrumbProps) => {
