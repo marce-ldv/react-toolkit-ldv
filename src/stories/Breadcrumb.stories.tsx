@@ -3,8 +3,8 @@ import { Meta, StoryObj } from '@storybook/react'
 import { Breadcrumb } from '../components/atoms'
 
 const options = [
-  { title: 'Administrador de usuarios', linkTo: '/' },
-  { title: 'Listado de usuarios', linkTo: '/list' },
+  { title: 'Administrador de usuarios', Link: () => <a href='/'>Admin</a> },
+  { title: 'Listado de usuarios', Link: () => <a href='/'>Listado</a> },
   { title: 'Creación de usuarios' },
 ]
 

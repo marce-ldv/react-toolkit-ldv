@@ -3,20 +3,20 @@ import { Component, ReactNode } from 'react'
 import { NavigateNext as NavigateNextIcon } from '@mui/icons-material'
 import { Stack } from '@mui/material'
 
-import { StyledLink, StyledSpan } from './styled'
+import { StyledSpan } from './styled'
 
 export interface BreadcrumbOption {
   title: string
-  linkTo?: string
+  linkTo?: ReactNode
 }
 
 export interface BreadcrumbProps {
   options: BreadcrumbOption[]
   separator?: ReactNode
-  Link?: Component | ReactNode
+  Link?: ReactNode | Component | never
 }
 
-const Breadcrumb = ({ options, separator, Link }: BreadcrumbProps) => {
+const Breadcrumb = ({ options, separator }: BreadcrumbProps) => {
   return (
     <Stack
       spacing={1}
@@ -24,21 +24,12 @@ const Breadcrumb = ({ options, separator, Link }: BreadcrumbProps) => {
       aria-label='breadcrumb'
       role='breadcrumb'
     >
-      {options?.map(({ title, linkTo }) => {
-        const TpStyled = linkTo ? StyledLink : StyledSpan
-        const LinkWrapper = Link ?? StyledLink
-
+      {options?.map(({ title, Link }) => {
         return (
           <Stack key={title} role='listitem' direction='row'>
-            {linkTo ? (
-              <LinkWrapper>
-                <TpStyled>{title}</TpStyled>
-              </LinkWrapper>
-            ) : (
-              <TpStyled>{title}</TpStyled>
-            )}
+            {Link ? <Link /> : <StyledSpan>{title}</StyledSpan>}
 
-            {linkTo && (separator ?? <NavigateNextIcon role='separator' />)}
+            {Link && (separator ?? <NavigateNextIcon role='separator' />)}
           </Stack>
         )
       })}
