@@ -17,7 +17,7 @@ export const alertStyles: object = {
   },
 }
 
-export const IconStyles: object = {
+export const iconStyles: object = {
   padding: '7px 17px',
   backgroundColor: '#40BC35',
   borderRadius: '3px 0 0 3px',
