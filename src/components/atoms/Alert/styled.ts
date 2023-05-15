@@ -1,4 +1,4 @@
-export const StyledAlert: object = {
+export const alertStyles: object = {
   backgroundImage:
     'linear-gradient(to right, #4caf50 0%, #4caf50 10%, #fff 10%, #fff 100%)',
   color: '#000',
@@ -12,7 +12,7 @@ export const StyledAlert: object = {
   lineHeight: '22px',
 }
 
-export const IconStyle = {
+export const iconStyles = {
   color: '#fff',
   fontSize: '4rem',
   height: '2rem',

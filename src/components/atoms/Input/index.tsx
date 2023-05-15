@@ -3,7 +3,7 @@ import { InputHTMLAttributes, JSX } from 'react'
 import { Box, Typography } from '@mui/material'
 import MuiTextField from '@mui/material/TextField'
 
-import { StyledCharsCounter } from './styled'
+import { charsCounterStyles } from './styled'
 
 export interface InputProps {
   maxLength?: number
@@ -33,7 +33,8 @@ const Input = ({
   placeholder = '',
   ...props
 }: InputProps) => {
-  const valueLength = String(value).length || 0
+  const valueLength = String(value).length
+  const isMaxLength = valueLength >= maxLength
 
   return (
     <Box>
@@ -49,9 +50,9 @@ const Input = ({
         placeholder={placeholder}
         {...props}
       />
-      {maxLength !== 200 && (
+      {isMaxLength && (
         <Typography
-          sx={StyledCharsCounter}
+          sx={charsCounterStyles}
           paragraph
         >{`${valueLength} / ${maxLength}`}</Typography>
       )}
