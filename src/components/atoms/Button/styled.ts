@@ -1,4 +1,4 @@
-export const BtnStyled = {
+export const btnStyled = {
   background: '#4B96D0',
   textTransform: 'none',
   padding: '8px 22px',

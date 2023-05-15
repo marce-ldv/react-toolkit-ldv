@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react'
 import { Button } from '@mui/material'
 import type { ButtonProps } from '@mui/material'
 
-import { BtnStyled } from './styled'
+import { btnStyled } from './styled'
 
 export interface CustomButtonProps extends ButtonProps {}
 
@@ -12,7 +12,7 @@ const CustomButton = ({
   ...props
 }: PropsWithChildren<CustomButtonProps>) => {
   return (
-    <Button sx={BtnStyled} {...props}>
+    <Button sx={btnStyled} {...props}>
       {children}
     </Button>
   )
