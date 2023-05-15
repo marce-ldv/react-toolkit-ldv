@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { FunctionComponent, ReactNode } from 'react'
 
 import { NavigateNext as NavigateNextIcon } from '@mui/icons-material'
 import { Stack } from '@mui/material'
@@ -7,7 +7,7 @@ import { StyledSpan } from './styled'
 
 export interface BreadcrumbOption {
   title: string
-  Link?: ReactNode
+  Link?: FunctionComponent
 }
 
 export interface BreadcrumbProps {

@@ -11,7 +11,7 @@ const TagInfo = ({
   label = 'Usuarios',
   isUppercase = true,
   variant = 'filled',
-  color = '#D500F94D',
+  color,
   ...props
 }: TagInfoProps) => {
   const getLabel = (label: string) =>
