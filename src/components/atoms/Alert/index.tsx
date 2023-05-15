@@ -1,8 +1,8 @@
 import { AlertProps as MuiAlertProps, Alert as MuiAlert } from '@mui/material'
 
 import { alertStyles, IconStyles } from './styled'
-import SmileIcon from '../../../assets/icons/smile.svg'
-import { CustomIcon } from '../index'
+import { CustomIcon } from '~/atoms'
+import SmileIcon from '~/icons/smile.svg'
 export interface AlertProps extends MuiAlertProps {
   iconAlt?: string
 }

@@ -22,12 +22,13 @@
     /* paths */
     "paths": {
       "~/*": ["./*"],
-      "~/atoms": ["./src/components/atoms/*"],
+      "~/atoms": ["./src/components/atoms/"],
       "~/molecules": ["./src/components/molecules/*"],
       "~/organisms": ["./src/components/organisms/*"],
       "~/types": ["./src/types/*"],
       "~/public": ["./public/*"],
-      "~/shared": ["./src/shared/*"]
+      "~/shared": ["./src/shared/*"],
+      "~/icons": ["./src/assets/icons/*"]
     }
   },
   "include": ["src"],
