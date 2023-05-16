@@ -3,19 +3,12 @@ import path from 'node:path'
 import react from '@vitejs/plugin-react-swc'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-import svgrPlugin from 'vite-plugin-svgr'
 
 export default defineConfig({
   plugins: [
     react(),
     dts({
       insertTypesEntry: true,
-    }),
-    svgrPlugin({
-      svgrOptions: {
-        icon: true,
-        // ...svgr options (https://react-svgr.com/docs/options/)
-      },
     }),
   ],
   build: {

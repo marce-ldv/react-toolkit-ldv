@@ -1,19 +1,22 @@
-import { SentimentSatisfiedAlt as IconSuccess } from '@mui/icons-material'
 import { AlertProps as MuiAlertProps, Alert as MuiAlert } from '@mui/material'
 
 import { alertStyles, iconStyles } from './styled'
-
-export interface AlertProps extends MuiAlertProps {}
+import SmileIcon from '../../../assets/icons/smile.svg'
+import CustomIcon from '../CustomIcon'
+export interface AlertProps extends MuiAlertProps {
+  iconAlt?: string
+}
 
 const Alert = ({
   children = 'Alert',
   variant = 'standard',
   onClose,
+  iconAlt = '',
   ...props
 }: AlertProps) => {
   return (
     <MuiAlert
-      icon={<IconSuccess fontSize='large' sx={iconStyles} />}
+      icon={<CustomIcon src={SmileIcon} alt={iconAlt} style={iconStyles} />}
       variant={variant}
       onClose={() => onClose}
       sx={alertStyles}
