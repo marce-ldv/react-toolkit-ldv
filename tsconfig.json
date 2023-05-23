@@ -21,16 +21,19 @@
 
     /* paths */
     "paths": {
-      "~/*": ["./*"],
-      "~/atoms": ["./src/components/atoms/"],
-      "~/molecules": ["./src/components/molecules/*"],
-      "~/organisms": ["./src/components/organisms/*"],
-      "~/types": ["./src/types/*"],
-      "~/public": ["./public/*"],
-      "~/shared": ["./src/shared/*"],
-      "~/icons": ["./src/assets/icons/*"]
+      // "~/*": ["./*"],
+      // "~/atoms": ["./src/components/atoms/"],
+      // "~/molecules": ["./src/components/molecules/*"],
+      // "~/organisms": ["./src/components/organisms/*"],
+      // "~/types": ["./src/types/*"],
+      // "~/public": ["./public/*"],
+      // "~/shared": ["./src/shared/*"],
+      // "~/icons": ["./src/assets/icons/*"],
+
+      "@/*": ["./*"],
+      "@/lib": ["./lib/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "lib"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
