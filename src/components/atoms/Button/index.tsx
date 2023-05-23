@@ -1,21 +1,17 @@
 import { PropsWithChildren } from 'react'
 
-import { Button } from '@mui/material'
-import type { ButtonProps } from '@mui/material'
+// import { Button } from '@mui/material'
 
 import { btnStyles } from './styled'
+import { Button } from '../../../../components/ui/button'
 
-export interface CustomButtonProps extends ButtonProps {}
+export interface CustomButtonProps {}
 
 const CustomButton = ({
   children,
   ...props
 }: PropsWithChildren<CustomButtonProps>) => {
-  return (
-    <Button sx={btnStyles} {...props}>
-      {children}
-    </Button>
-  )
+  return <Button {...props}>{children}</Button>
 }
 
 export default CustomButton
